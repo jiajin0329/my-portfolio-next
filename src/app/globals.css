@@ -1,0 +1,26 @@
+﻿:root {
+  font-family: 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+  font-size: var(--font-size-base);
+  line-height: 1.8;
+  color: var(--color-ink);
+  background: var(--color-background);
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+a { color: inherit; text-underline-offset: 0.25em; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 5px; }
+::selection { background: #f0cfad; color: var(--color-ink); }
+h1, h2, h3, p { margin: 0; }
+img { max-width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
