@@ -11,7 +11,9 @@ pnpm install
 pnpm dev
 ```
 
-開啟 http://localhost:3000。
+開啟 http://localhost:3000 或 http://127.0.0.1:3000。
+
+`next.config.mjs` 明確允許 `127.0.0.1` 作為額外的本機開發來源，避免 Next.js 阻擋互動所需的開發資源，導致影片播放按鈕沒有反應。修改此設定後須重新啟動開發伺服器。
 
 ```sh
 pnpm lint
