@@ -32,3 +32,9 @@
 !/test/
 !/tsconfig.json
 tap-testdir*/
+
+# Portfolio application source and local visual assets
+!/src/
+!/public/
+!/next.config.mjs
+!/pnpm-lock.yaml

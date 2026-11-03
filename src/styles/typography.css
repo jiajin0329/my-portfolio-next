@@ -1,22 +1,32 @@
-﻿:root {
+:root {
+  --font-body: 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+  --font-pixel: 'VT323', 'Courier New', monospace;
   --font-size-base: 16px;
-  --font-size-brand: 1rem;
+  --font-size-brand: 1.25rem;
   --font-size-navigation: 0.875rem;
   --font-size-menu-button: 0.875rem;
-  --font-size-label: 0.7rem;
-  --font-size-heading-1: clamp(2.5rem, 5vw, 4.6rem);
-  --font-size-heading-2: clamp(1.5rem, 3vw, 2rem);
+  --font-size-label: 1.125rem;
+  --font-size-heading-1: clamp(1.25rem, 2.1vw, 2rem);
+  --font-size-heading-2: clamp(1.6rem, 3vw, 2.25rem);
   --font-size-heading-3: clamp(1.35rem, 2.3vw, 2rem);
   --font-size-play-icon: 1.25rem;
   --font-size-close-icon: 1.5rem;
   --youtube-preview-width-first: 800px;
   --youtube-preview-width-other: 480px;
-  --color-background: #faf7f0;
-  --color-surface: #fffdf9;
-  --color-ink: #302a25;
-  --color-muted: #70665c;
-  --color-accent: #a84226;
-  --color-line: #ded7cb;
+  --color-background: #fbf3e1;
+  --color-surface: #fff8e9;
+  --color-parchment: #ffe6b3;
+  --color-ink: #442917;
+  --color-muted: #78604a;
+  --color-accent: #a64222;
+  --color-accent-hover: #853319;
+  --color-line: #d3b58a;
+  --color-frame: #6b3b20;
+  --color-gold: #d89545;
+  --color-shadow: #b37a45;
   --section-space: clamp(3.5rem, 7vw, 6rem);
   --content-width: 1160px;
+  --scene-width: 1680px;
+  --pixel-step: 4px;
+  --pixel-shadow: 0 4px 0 var(--color-shadow);
 }
