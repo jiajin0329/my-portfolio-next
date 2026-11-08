@@ -1,0 +1,43 @@
+{
+	"nodes":[
+		{"id":"entry","type":"group","label":"01  Next.js App Router","x":0,"y":0,"width":360,"height":600,"color":"2"},
+		{"id":"ui","type":"group","label":"02  React 元件","x":470,"y":0,"width":360,"height":600,"color":"3"},
+		{"id":"resources","type":"group","label":"03  樣式、資料與素材","x":970,"y":0,"width":460,"height":600,"color":"4"},
+		{"id":"routes","type":"group","label":"04  首頁地標導覽與瀏覽器互動","x":0,"y":700,"width":1430,"height":445,"color":"5"},
+		{"id":"layout","type":"text","text":"### RootLayout\n`src/app/layout.jsx`\n設定頁面語言與 SEO metadata","x":30,"y":35,"width":300,"height":124},
+		{"id":"page","type":"text","text":"### 首頁 `/`\n`src/app/page.jsx`\n渲染 PortfolioApp","x":30,"y":235,"width":300,"height":124},
+		{"id":"app","type":"text","text":"### PortfolioApp\n`src/components/PortfolioApp.jsx`\n組合首頁區塊、作品清單與頁尾","x":30,"y":435,"width":300,"height":124},
+		{"id":"nav","type":"text","text":"### Navbar\n`Navbar.jsx` · Client Component\n頁內錨點與手機選單","x":500,"y":35,"width":300,"height":110},
+		{"id":"hero","type":"text","text":"### AdventureHero\n`AdventureHero.jsx`\n首屏介紹、像素地圖與三個地標","x":500,"y":175,"width":300,"height":110},
+		{"id":"project","type":"text","text":"### ProjectCard\n`ProjectCard.jsx` · Client Component\n作品詳情、影片與職責展開","x":500,"y":315,"width":300,"height":110},
+		{"id":"heading","type":"text","text":"### SectionHeading\n`SectionHeading.jsx`\n共用區塊標題","x":500,"y":455,"width":300,"height":110},
+		{"id":"css","type":"text","text":"### 全站樣式\n`typography.css` 設計變數\n`globals.css` 字體、焦點與減少動態\n`PortfolioApp.css` 地圖與響應式版面","x":1000,"y":35,"width":400,"height":124},
+		{"id":"scene","type":"text","text":"### 地圖素材\n`public/images/adventure/scene-preview.png`\n現行整景圖由 Next.js Image 顯示","x":1000,"y":185,"width":400,"height":108},
+		{"id":"video","type":"text","text":"### 影片工具\n`src/lib/video.js`\n從作品網址解析 YouTube 影片 ID","x":1000,"y":320,"width":400,"height":108},
+		{"id":"data","type":"text","text":"### 作品集資料\n`src/data/portfolio.js`\n個人資料、技能、導覽、作品與工作經驗","x":1000,"y":460,"width":400,"height":105},
+		{"id":"map","type":"text","text":"### 首頁地圖\n`#home`\n地標由 AdventureHero 提供","x":30,"y":850,"width":280,"height":125},
+		{"id":"about","type":"text","text":"### 關於我\n`#about`\n個人介紹","x":460,"y":730,"width":290,"height":105},
+		{"id":"gallery","type":"text","text":"### 作品展示館\n`#projects`\n渲染作品卡片","x":460,"y":855,"width":290,"height":110},
+		{"id":"contact","type":"text","text":"### 聯絡我\n`#contact`\n點選 Email 連結","x":460,"y":990,"width":290,"height":110},
+		{"id":"youtube","type":"text","text":"### YouTube\n預覽縮圖 → 點擊播放掛載 iframe\n關閉後卸載 iframe，回到縮圖","x":970,"y":830,"width":410,"height":135},
+		{"id":"email","type":"text","text":"### 郵件程式\n`mailto:` 開啟新郵件","x":970,"y":990,"width":410,"height":105}
+	],
+	"edges":[
+		{"id":"layout-page","fromNode":"layout","fromSide":"bottom","toNode":"page","toSide":"top","label":"包裹首頁"},
+		{"id":"page-app","fromNode":"page","fromSide":"bottom","toNode":"app","toSide":"top","label":"渲染"},
+		{"id":"app-nav","fromNode":"app","fromSide":"right","toNode":"nav","toSide":"left","label":""},
+		{"id":"app-hero","fromNode":"app","fromSide":"right","toNode":"hero","toSide":"left","label":""},
+		{"id":"app-project","fromNode":"app","fromSide":"right","toNode":"project","toSide":"left","label":""},
+		{"id":"app-heading","fromNode":"app","fromSide":"right","toNode":"heading","toSide":"left","label":""},
+		{"id":"layout-css","fromNode":"layout","fromSide":"top","toNode":"css","toSide":"top","label":""},
+		{"id":"hero-scene","fromNode":"hero","fromSide":"right","toNode":"scene","toSide":"left","label":"載入整景"},
+		{"id":"hero-video","fromNode":"hero","fromSide":"right","toNode":"video","toSide":"left","label":"櫥窗縮圖"},
+		{"id":"project-video","fromNode":"project","fromSide":"right","toNode":"video","toSide":"left","label":"播放與縮圖"},
+		{"id":"app-data","fromNode":"app","fromSide":"bottom","toNode":"data","toSide":"bottom","label":"讀取資料"},
+		{"id":"map-about","fromNode":"map","fromSide":"right","toNode":"about","toSide":"left","label":"角色資料牌"},
+		{"id":"map-gallery","fromNode":"map","fromSide":"right","toNode":"gallery","toSide":"left","label":"展示館"},
+		{"id":"map-contact","fromNode":"map","fromSide":"right","toNode":"contact","toSide":"left","label":"信箱"},
+		{"id":"gallery-youtube","fromNode":"gallery","fromSide":"right","toNode":"youtube","toSide":"left","label":"播放作品影片"},
+		{"id":"contact-email","fromNode":"contact","fromSide":"right","toNode":"email","toSide":"left","label":"點選 Email"}
+	]
+}
