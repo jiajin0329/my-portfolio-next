@@ -1,25 +1,39 @@
 # 首頁場景素材製作紀錄
 
-- 日期：2026-11-04
-- 工具：內建 imagegen（以本機參考圖編輯，非 CLI）
-- 參考圖：`docs/design/portfolio-map-960x540.png`
-- 採用素材：`public/images/adventure-map.png`
-- 用途：HTML 首屏面板、文字與導覽背後的場景。
-- 場景保留原生輸出大小，版面以 960 × 540 邏輯單位定位；不宣稱符合嚴格一致的原生像素網格。
-- 櫥窗的真實作品縮圖由 HTML 疊加；素材中的抽象海報為裝飾。
+## 製作流程
 
-## 第一輪提示詞
+依[視覺設計規格](../design-spec.md#16-畫布與像素製作要求)製作，入口與響應式驗收見同一份規格的第 1.4 與 1.7 節。
 
-```text
-Use case precise-object-edit. Prepare this exact selected pixel game portfolio concept as a production website BACKGROUND ART asset, landscape 16:9, designed on 960x540 logical grid. Preserve the composition, positions, architecture, character, mailbox, roads, mountains, sunset, forest and stone bridge of this reference very closely. Warm detailed crisp pixel art, brown outlines, orange scarf character unchanged. Remove ALL WRITING and interactive UI from the background so we can overlay accessible real HTML. Specific edits: remove the entire top navigation strip (top 8%) and continue the sky / branches behind it. Remove the entire large left parchment hero panel including its buttons and text, and replace its rectangle with quiet softly lit cream/gold sky and distant hills/forest meadow, low contrast low detail, suitable behind a NEW HTML parchment panel positioned there. Keep left frame tree at edge. At upper-middle keep the full-body character and the SMALL FRAMED CHARACTER CARD next to it, keep the head portrait at top of card but remove all text and horizontal separator lines underneath portrait, leaving clean blank cream lower card area. Remove the three small ABOUT PROJECTS CONTACT label plaques and diamond map markers entirely, fill their places with natural dirt path/grass. At exhibition gallery remove the text EXHIBITION GALLERY from sign, leave blank wood sign. Keep window displays as abstract symbolic art not actual games. Keep all paths seamlessly connected, SINGLE approach path ending at mailbox, NO redundant loop/extra branch. No new elements. No words, no letters, no numbers anywhere. Preserve relative destination locations: character group centered x50% y30%; gallery x85% y31%; mailbox x73% y79%. Maintain 16:9 framing and coherent pixel grid, no smoothing. Output full scene only, no mockup.
-```
+1. 在同一張 480 × 270 原生畫布繪製地景、三個地標及場景裝飾。
+2. 交付 1× 母稿與最近鄰 2× 預覽，檢查各區像素尺度一致，且每個原稿像素在 2× 預覽對應同色的 2 × 2 方格。
+3. 依設計規格第 1.1 節的核定稿及地景來源製作。提交同尺寸的完整首頁對照，記錄差異與審核狀態。經使用者確認後，按原尺寸裁出三張透明地標圖，記錄整數座標。底圖補齊地形，再以 1× 原位合成，確認地標與道路銜接。
+4. 接入網站後以桌面截圖比對核定稿，另檢查手機裁切與操作。視覺驗收通過後才清理被取代的素材。
 
-## 第二輪：修復展示館支路（採用結果）
+## 整景審稿
 
-```text
-Precise localized road repair only in this no-text production pixel-art background. Restore the missing dirt branch to the exhibition gallery. From the winding CENTRAL MAIN ROAD junction around (980,600) in this 1672x941 image, draw a continuous peach dirt branch gently up-right across the grassy strip beneath the broadleaf tree toward the gallery entry around (1400,475). Where the grassy ledge rises, add a short natural stone stair linking the branch to the gallery front steps. Path must be visibly continuous, not vanish into cliff. Keep existing main north-south route from character to mailbox, bridge approach, mailbox path ending, all structures, character, blank character card, blank gallery sign, left scenery, sky and dimensions exactly as before. Do not add any text, labels, plaques or UI. Only add gallery branch and tiny stair connection. Match original pixel density and road color. Preserve left open area for HTML panel.
-```
+完整首頁概念圖以 480 × 270 整數格線配置介面。已逐像素確認，2× 預覽中每個 1× 像素都對應同色的 2 × 2 方格。
 
-## 字體
+- [完整首頁概念圖 1×（480 × 270）](adventure-homepage-concept-480x270.png)
+- [完整首頁概念圖 2×（960 × 540）](adventure-homepage-concept-960x540.png)
 
-VT323 英數像素字體及 SIL OFL 授權自 Google Fonts 官方儲存庫取得，保存在 `public/fonts/`。中文與長內文使用系統字體，無執行時外部字體請求。
+網站場景以同一張原生整景製作。四張圖層按下方座標合成後，已確認每個像素都與 1× 母稿一致，2× 預覽也通過逐像素比對。
+
+## 修正版整景待審
+
+- 參考採用上方核定的完整首頁概念圖，地景取自[對應的 1× 來源圖](adventure-map-concept-480x270.png)。
+- 色階方向已確認。本輪在 480 × 270 格線上修整角色與資料牌、展示館與階梯、信箱及地景的低對比孤立像素，保留高對比輪廓、主要光影與介面位置。仍可見細微色階差異，主要在天空、植被與石壁。
+- [同尺寸對照，左為核定稿，右為修正版](adventure-homepage-review-comparison.png) · [完整首頁 1×](adventure-homepage-review-480x270.png) · [完整首頁 2×](adventure-homepage-review-960x540.png) · [修正版地景 1×](../../public/images/adventure/scene-preview.png)
+- 狀態為**已接入本機首頁，待使用者檢查**。目前使用完整地景預覽圖 `public/images/adventure/scene-preview.png`，並以 HTML 疊上地標連結、文字與櫥窗縮圖。已逐像素驗證 2× 放大，並在 320 至 1440 px 檢查三個入口。視覺確認後再拆分圖層。
+
+## 網站使用中的素材
+
+下表記錄預覽前的分層素材。這些檔案保留至新版視覺驗收完成。
+
+| 素材（位於 `public/images/adventure/`） | 尺寸（px） | 左上角座標 |
+| --- | --- | --- |
+| `background-native.png` | 480 × 270 | (0, 0) |
+| `about.png` | 95 × 66 | (194, 63) |
+| `projects.png` | 124 × 77 | (343, 73) |
+| `contact.png` | 37 × 60 | (312, 191) |
+
+資料牌文字、展示館名稱、真實作品縮圖及地標名稱由 HTML 疊加。

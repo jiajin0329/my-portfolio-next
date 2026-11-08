@@ -38,3 +38,5 @@ tap-testdir*/
 !/public/
 !/next.config.mjs
 !/pnpm-lock.yaml
+
+.DS_Store
