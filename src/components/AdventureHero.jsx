@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import { getYouTubeVideoId } from '../lib/video.js'
-import adventureMap from '../../public/images/adventure/scene-preview.png'
+import adventureMap from '../../public/images/adventure/native/background.png'
 
 const mapSize = { width: 480, height: 270 }
 
-// Landmark bounds in the full-scene preview's native pixel grid.
+// Both poses share these bounds in the approved 480 × 270 scene.
 const destinations = [
   { id: 'about', label: '關於我', x: 173, y: 55, width: 101, height: 72 },
-  { id: 'projects', label: '探索作品', x: 319, y: 44, width: 155, height: 95 },
-  { id: 'contact', label: '聯絡我', x: 292, y: 183, width: 47, height: 59 },
+  { id: 'projects', label: '探索作品', x: 317, y: 43, width: 156, height: 97 },
+  { id: 'contact', label: '聯絡我', x: 291, y: 183, width: 48, height: 59 },
 ]
 
 export default function AdventureHero({ profile, projects }) {
@@ -34,6 +34,7 @@ export default function AdventureHero({ profile, projects }) {
             src={adventureMap}
             alt="夕陽映照山林，蜿蜒的小徑經過石橋，遠處有瀑布。"
             fetchPriority="high"
+            loading="eager"
             unoptimized
           />
           <nav aria-label="冒險地圖導覽">
@@ -50,18 +51,33 @@ export default function AdventureHero({ profile, projects }) {
                 }}
               >
                 <span className="map-destination__art" aria-hidden="true">
-                  {id === 'about' && (
-                    <span className="adventure-map__profile">{profile.displayName}<br />UNITY / C#</span>
-                  )}
-                  {id === 'projects' && <span className="adventure-map__gallery-name">作品展示館</span>}
-                  {id === 'projects' && projects.slice(0, 3).map((project, index) => (
-                    <img
-                      className={'adventure-map__poster adventure-map__poster--' + (index + 1)}
-                      src={'https://i.ytimg.com/vi/' + getYouTubeVideoId(project.videoUrl) + '/hqdefault.jpg'}
-                      alt=""
-                      key={project.id}
-                    />
-                  ))}
+                  <span className="map-destination__hit-area" />
+                  <span className="map-destination__visual">
+                    {['idle', 'hover'].map((state) => (
+                      <Image
+                        className={'map-destination__image map-destination__image--' + state}
+                        src={'/images/adventure/native/' + id + '-' + state + '.png'}
+                        width={width}
+                        height={height}
+                        alt=""
+                        loading="eager"
+                        unoptimized
+                        key={state}
+                      />
+                    ))}
+                    {id === 'about' && (
+                      <span className="adventure-map__profile">{profile.displayName}<br />UNITY / C#</span>
+                    )}
+                    {id === 'projects' && <span className="adventure-map__gallery-name">作品展示館</span>}
+                    {id === 'projects' && projects.slice(0, 3).map((project, index) => (
+                      <img
+                        className={'adventure-map__poster adventure-map__poster--' + (index + 1)}
+                        src={'https://i.ytimg.com/vi/' + getYouTubeVideoId(project.videoUrl) + '/hqdefault.jpg'}
+                        alt=""
+                        key={project.id}
+                      />
+                    ))}
+                  </span>
                 </span>
                 <span className="map-destination__label">
                   <span className="map-destination__cursor" aria-hidden="true">▶</span>

@@ -34,10 +34,10 @@
 
 <!-- BEGIN:nextjs-agent-rules -->
 
-## 這個版本的 Next.js 有破壞性變更
+## This is NOT the Next.js you know
 
-這個版本的 API、慣例與檔案結構都可能和訓練資料中的內容不同。撰寫程式碼前，請先閱讀 `node_modules/next/dist/docs/` 中的相關指南，並留意棄用通知。此路徑以本檔案所在目錄為基準。在單一儲存庫（monorepo）中，可能無法從儲存庫根目錄找到 `next` 套件。
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
 
-`next dev` 會產生此區塊，並在區塊被移除後重新加入。可查看 `node_modules/next/dist/server/lib/generate-agent-files.js` 確認其行為。若從變更中移除此區塊，重新產生時仍會出現未提交的變更。將此區塊隨本次變更一併提交，即可保持工作目錄乾淨。
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
